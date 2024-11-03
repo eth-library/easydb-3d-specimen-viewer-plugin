@@ -33,12 +33,27 @@ class SpecimenViewer3DPlugin extends AssetDetail
         obj: "obj"
         p3v: "p3v"
       }
+
+      # Nahima does not respect the actual extension from the filename
+      # -> let's detect them ourselves, as otherwise,
+      # our custom zip files will not be handled appropriately.
+      extension = version.original_filename.split(".").pop()
+      supported = false
+      
       # iterate the supported extensions, set the asset info if applicable
       if supported_extensions_types[version.extension]
         assetInfo.type = supported_extensions_types[version.extension]
+        supported = true
+      if supported_extensions_types[extension]
+        assetInfo.type = supported_extensions_types[extension]
+        supported = true
+      
+      if supported
         if typeof version.versions.original?.url != 'undefined'
           assetInfo.url = version.versions.original?.url
           assetInfo.extension = version.versions.original?.extension
+        break
+
 
     return assetInfo
 
@@ -101,7 +116,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
       id: "specimen-3d-viewer-iframe",
       "frameborder": "0",
       "scrolling": "no",
-      "src": pluginStaticUrl + "/build/index.html?asset=" + assetInfo.url
+      "src": pluginStaticUrl + "/build/index.html?type=" + assetInfo.type + "asset=" + assetInfo.url
     })
 
     viewerDiv.appendChild(iframe)
