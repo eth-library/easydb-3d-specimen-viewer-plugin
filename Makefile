@@ -9,14 +9,13 @@ INSTALL_FILES = \
 	manifest.yml
 
 EXTRA_FILES = \
-	$(WEB)/../build/index.html \
-	$(WEB)/../build/static/css/main.css \
-	$(WEB)/../build/static/js/main.js \
-	$(WEB)/../build/index.html \
+	$(WEB)/build/index.html \
+	$(WEB)/build/static/css/main.css \
+	$(WEB)/build/static/js/main.js \
 
 L10N_FILES = l10n/easydb-3d-specimen-viewer-plugin.csv
 
-CSS = $(WEB)/build/css/easydb-3d-specimen-viewer-plugin.css
+CSS = $(WEB)/easydb-3d-specimen-viewer-plugin.css
 
 SCSS_FILES = src/easydb-3d-specimen-viewer-plugin.scss
 
@@ -26,6 +25,10 @@ COFFEE_FILES = \
 all: build
 
 include easydb-library/tools/base-plugins.make
+
+$(WEB)/build/%: build/%
+	mkdir -p $(dir $@)
+	cp $^ $@
 
 build: code css $(EXTRA_FILES)
 
