@@ -13,7 +13,7 @@ For more details on these file types and the viewer, please refer to [3d-specime
 
 ## Installation
 
-Please follow the official installation guidelines.
+Please follow the official installation [guidelines](https://docs.easydb.de/en/sysadmin/configuration/easydb-server.yml/plugins/).
 
 ## Development
 
