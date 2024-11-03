@@ -9,6 +9,6 @@ plugin:
     de: "3D-Viewer mit Unterstützung für zahlreiche 3D-Dateien, inkl. dem Photogrammetry-Viewer der ULB Darmstadt"
     en: "3D viewer with support for multiple 3D file types, including the Photogrammetry viewer of the University Library of Darmstadt"
   webfrontend:
-    url: dist/easydb-3d-specimen-viewer-plugin.js
+    url: easydb-3d-specimen-viewer-plugin.js
     l10n: l10n/
-    css: dist/css/easydb-3d-specimen-viewer-plugin.css
+    css: easydb-3d-specimen-viewer-plugin.css
