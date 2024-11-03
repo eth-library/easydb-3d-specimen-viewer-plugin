@@ -34,8 +34,8 @@ class SpecimenViewer3DPlugin extends AssetDetail
         p3v: "p3v"
       }
       # iterate the supported extensions, set the asset info if applicable
-      if supported_extensions_types[version.class_extension]
-        assetInfo.type = supported_extensions_types[version.class_extension]
+      if supported_extensions_types[version.extension]
+        assetInfo.type = supported_extensions_types[version.extension]
         if typeof version.versions.original?.url != 'undefined'
           assetInfo.url = version.versions.original?.url
           assetInfo.extension = version.versions.original?.extension
