@@ -52,9 +52,9 @@ class SpecimenViewer3DPlugin extends AssetDetail
         if typeof version.versions.original?.url != 'undefined'
           assetInfo.url = version.versions.original?.url
           assetInfo.extension = version.versions.original?.extension
+        console.log("Found supported asset", [extension, supported, assetInfo, version])
         break
-
-
+        
     return assetInfo
 
 
