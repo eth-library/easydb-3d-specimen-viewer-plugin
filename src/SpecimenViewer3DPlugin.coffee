@@ -116,7 +116,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
       id: "specimen-3d-viewer-iframe",
       "frameborder": "0",
       "scrolling": "no",
-      "src": pluginStaticUrl + "/build/index.html?type=" + assetInfo.type + "asset=" + assetInfo.url
+      "src": pluginStaticUrl + "/build/index.html?type=" + assetInfo.type + "&asset=" + assetInfo.url
     })
 
     viewerDiv.appendChild(iframe)
