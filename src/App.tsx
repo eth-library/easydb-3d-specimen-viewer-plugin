@@ -10,7 +10,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App specimen-3d-viewer-full-size">
       <SpecimenViewer3D src={asset} />
     </div>
   );
