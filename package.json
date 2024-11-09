@@ -10,6 +10,7 @@
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@ulb-darmstadt/photogrammetry-viewer": "github:BernhardWebstudio/photogrammetry-viewer",
     "3d-specimen-viewer": "git+ssh://git@gitlab.ethz.ch:betim/3d-specimen-viewer.git",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -41,7 +42,7 @@
     "build-fix-assetmanifest-css": "replace-in-file \"/main\\.[^\\.]+\\.css/ig\" \"main.css\" build/asset-manifest.json --isRegex",
     "build-fix-assetmanifest-js-map": "replace-in-file \"/main\\.[^\\.]+\\.js\\.map/ig\" \"main.js.map\" build/asset-manifest.json --isRegex",
     "build-fix-assetmanifest-css-map": "replace-in-file \"/main\\.[^\\.]+\\.css\\.map/ig\" \"main.css.map\" build/asset-manifest.json --isRegex",
-    "postbuild": "npm run build-rename"
+    "postbuild": "npm run build-rename; cp node_modules/@ulb-darmstadt/photogrammetry-viewer/dist/photogrammetry-viewer.js build/static/js/photogrammetry-viewer.js"
   },
   "eslintConfig": {
     "extends": [
