@@ -6,7 +6,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
       url: null
       extension: null
       defaults: ''
-      version: null
+      asset: null
     }
 
     if not asset
@@ -50,7 +50,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
         supported = true
       
       if supported
-        assetInfo.version = version
+        assetInfo.asset = asset
         if typeof version.versions.original?.url != 'undefined'
           assetInfo.url = version.versions.original?.url
           assetInfo.extension = version.versions.original?.extension
@@ -117,18 +117,27 @@ class SpecimenViewer3DPlugin extends AssetDetail
     # we could use assetInfo to conditionally change what viewer we use...
     # in particular, we need to return a different file for the photogrammetry viewer
     # to improve Firefox support
-    if assertInfo.type == "p3v" and assetInfo.version
-      # in this file, look for the required components
-      src2D = ""
-      src3D = ""
-      srcXml = ""
+    # if assertInfo.type == "p3v" and assetInfo.version
+    #   # in this file, look for the required components
+    #   src2D = ""
+    #   src3D = ""
+    #   srcXml = ""
 
-      # find them in the asset metadata
-      
-      
-      if (src2D && src3D && srcXml)
-        frameSrc = pluginStaticUrl + "/build/photogrammetry_viewer.html?srcScanInformation=" +srcXml + "&src3D=" + src3D + "&src2D=" + src2D
-      
+    #   # find them in the asset metadata
+    #   asset = assetInfo.asset
+    #   if !(asset instanceof Asset)
+    #     asset = Object.values(asset)[0]
+    #   if (asset instanceof Asset && asset.files)
+    #     for file of asset.files
+    #       if file.path.endswith(".xml")
+    #         srcXml = assetInfo.url + "/" + file
+    #       if file.path.endswith(".glb") || file.endswith(".gltf")
+    #         src3D = file
+    #       if file.path.contains("edof")
+    #         src2D = file
+    #     if (src2D && src3D && srcXml)
+    #       frameSrc = pluginStaticUrl + "/build/photogrammetry_viewer.html?srcScanInformation=" +srcXml + "&src3D=" + src3D + "&src2D=" + src2D
+        
 
     # ...but for now, we have one that supports all types anyway.
     iframe = CUI.dom.element("iframe", {
