@@ -7,6 +7,8 @@ Currently supported are the file extensions:
 - gltf, glb
 - stl,
 - obj,
+- ply,
+- fbx,
 - p3v
 
 For more details on these file types and the viewer, please refer to [3d-specimen-viewer](https://gitlab.ethz.ch/betim/3d-specimen-viewer).
