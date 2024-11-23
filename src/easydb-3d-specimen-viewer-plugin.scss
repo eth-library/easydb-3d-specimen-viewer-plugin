@@ -20,3 +20,12 @@
   margin: 0;
   padding: 0;
 }
+
+
+@media ((max-width: 20em) or (max-height: 20em)) {
+
+  #leva__root,
+  #leva__root>* {
+    display: none;
+  }
+}

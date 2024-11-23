@@ -1,3 +1,10 @@
 .App {
   text-align: center;
 }
+
+@media ((max-width: 20em) or (max-height: 20em)) {
+  #leva__root,
+  #leva__root > * {
+    display: none;
+  }
+}
