@@ -16,7 +16,14 @@
       padding: 0;
     }
 
-    @media ((max-width: 20em) or (max-height: 20em)) {
+    #leva__root,
+    #leva__root>* {
+      --leva-sizes-titleBarHeight: 1em;
+      --leva-sizes-rootWidth: 20rem;
+      --leva-sizes-controlWidth: 7.5rem;
+    }
+
+    @media only screen and ((max-width: 22.5rem) or (max-height: 22.5rem)) {
 
       #leva__root,
       #leva__root>* {
