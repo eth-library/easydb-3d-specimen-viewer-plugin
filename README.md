@@ -11,7 +11,7 @@ Currently supported are the file extensions:
 - fbx,
 - p3v
 
-For more details on these file types and the viewer, please refer to [3d-specimen-viewer](https://gitlab.ethz.ch/betim/3d-specimen-viewer).
+For more details on these file types and the viewer, please refer to [3d-specimen-viewer](https://gitlab.ethz.ch/psa/photogrammetry-viewer/3d-specimen-viewer).
 
 ## Installation
 
@@ -34,3 +34,4 @@ npm run build
 ```
 
 Note that currently, the build folder is commited, as that simplifies deployment to easydb.
+Consequently, though, the git history is not as clean as it could be.
