@@ -113,7 +113,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
     plugin = ez5.pluginManager.getPlugin("easydb-3d-specimen-viewer-plugin")
     pluginStaticUrl = plugin.getBaseURL()
 
-    frameSrc = pluginStaticUrl + "/build/index.html?type=" + assetInfo.type + "&asset=" + assetInfo.url
+    frameSrc = pluginStaticUrl + "/index.html?type=" + assetInfo.type + "&asset=" + assetInfo.url
     # we could use assetInfo to conditionally change what viewer we use...
     # in particular, we need to return a different file for the photogrammetry viewer
     # to improve Firefox support
@@ -136,7 +136,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
     #       if file.path.contains("edof")
     #         src2D = file
     #     if (src2D && src3D && srcXml)
-    #       frameSrc = pluginStaticUrl + "/build/photogrammetry_viewer.html?srcScanInformation=" +srcXml + "&src3D=" + src3D + "&src2D=" + src2D
+    #       frameSrc = pluginStaticUrl + "/photogrammetry_viewer.html?srcScanInformation=" +srcXml + "&src3D=" + src3D + "&src2D=" + src2D
         
 
     # ...but for now, we have one that supports all types anyway.
