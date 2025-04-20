@@ -20,9 +20,7 @@ lerna-debug.log*
 
 # production
 ; /dist # we do want to commit /dist, as the Nahima server might not support all our dependencies
-/build/*.psd
-/build/webfrontend # however, we can exclude anything the `make` file generates
-build/webfrontend
+build
 src/SpecimenViewer3DPlugin.coffee.js
 build-stamp-l10n
 

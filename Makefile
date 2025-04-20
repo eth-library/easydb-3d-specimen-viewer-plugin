@@ -25,14 +25,14 @@ COFFEE_FILES = \
 # to build/webfrontend
 copy-dist:
 		mkdir -p $(WEB)/
-		cp -r dist/ $(WEB)/
+		cp -r dist/ $(WEB)
 
 # other rules, as appropriate
 all: build
 
 include easydb-library/tools/base-plugins.make
 
-build: code css copy-dist
+build: copy-dist code css
 
 code: $(JS) $(L10N)
 
