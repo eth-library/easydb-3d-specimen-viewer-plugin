@@ -25,7 +25,7 @@ COFFEE_FILES = \
 # to build/webfrontend
 copy-dist:
 		mkdir -p $(WEB)/
-		cp -r dist/ $(WEB)
+		cp -r dist/* $(WEB)
 
 # other rules, as appropriate
 all: build
