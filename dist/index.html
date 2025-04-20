@@ -7,7 +7,7 @@
     <meta name="description" content="Content that embeds a 3D-viewer as an iframe" />
   <!-- <link rel="stylesheet" href="%PUBLIC_URL%/webfrontend/easydb-3d-specimen-viewer-plugin.css" /> -->
   <style>
-    .specimen-3d-viewer-full-size {
+    html, body, .specimen-3d-viewer-full-size {
       height: 100%;
       width: 100%;
       margin: 0;
@@ -35,6 +35,6 @@
   </head>
   <body class="specimen-3d-viewer-full-size">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root" class="specimen-3d-viewer-full-size"></div>
   </body>
 </html>
