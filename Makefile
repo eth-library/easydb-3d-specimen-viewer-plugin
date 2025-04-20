@@ -1,5 +1,6 @@
 PLUGIN_NAME=easydb-3d-specimen-viewer-plugin
 
+# "basic" files that easydb's Makefile will install
 INSTALL_FILES = \
 	$(WEB)/l10n/cultures.json \
 	$(WEB)/l10n/de-DE.json \
@@ -8,29 +9,30 @@ INSTALL_FILES = \
 	$(WEB)/easydb-3d-specimen-viewer-plugin.js \
 	manifest.yml
 
-EXTRA_FILES = \
-	$(WEB)/build/index.html \
-	$(WEB)/build/static/css/main.css \
-	$(WEB)/build/static/js/main.js
-
+# translation files
 L10N_FILES = l10n/easydb-3d-specimen-viewer-plugin.csv
 
+# style files
 CSS = $(WEB)/easydb-3d-specimen-viewer-plugin.css
-
 SCSS_FILES = src/easydb-3d-specimen-viewer-plugin.scss
 
+# actual plugin code
 COFFEE_FILES = \
 	src/SpecimenViewer3DPlugin.coffee
 
+# Rule to copy files from dist 
+# (the files resulting from `npm run build`)
+# to build/webfrontend
+copy-dist:
+		mkdir -p $(WEB)/
+		cp -r dist/ $(WEB)/
+
+# other rules, as appropriate
 all: build
 
 include easydb-library/tools/base-plugins.make
 
-$(WEB)/build/%: build/%
-	mkdir -p $(dir $@)
-	cp $^ $@
-
-build: code css $(EXTRA_FILES)
+build: code css copy-dist
 
 code: $(JS) $(L10N)
 
