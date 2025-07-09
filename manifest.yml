@@ -1,5 +1,5 @@
 plugin:
-  name: easydb-3d-specimen-viewer-plugin
+  name: 3D-Specimen-Viewer-Plugin
   version: 1.0.0
   url: https://gitlab.ethz.ch/betim/3d-specimen-viewer-plugin
   displayname:
