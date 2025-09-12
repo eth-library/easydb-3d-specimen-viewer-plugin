@@ -1,5 +1,5 @@
 plugin:
-  name: easydb-3d-specimen-viewer-plugin
+  name: fylr-plugin-3d-specimen-viewer
   version: 1.0.0
   url: https://gitlab.ethz.ch/betim/3d-specimen-viewer-plugin
   displayname:
@@ -8,7 +8,9 @@ plugin:
   info:
     de: "3D-Viewer mit Unterstützung für zahlreiche 3D-Dateien, inkl. dem Photogrammetry-Viewer der ULB Darmstadt"
     en: "3D viewer with support for multiple 3D file types, including the Photogrammetry viewer of the University Library of Darmstadt"
+  l10n: l10n/fylr-plugin-3d-specimen-viewer.csv
   webfrontend:
-    url: easydb-3d-specimen-viewer-plugin.js
-    l10n: l10n/
-    css: easydb-3d-specimen-viewer-plugin.css
+    url: fylr-plugin-3d-specimen-viewer.js
+    css: fylr-plugin-3d-specimen-viewer.css
+
+base_url_prefix: webfrontend

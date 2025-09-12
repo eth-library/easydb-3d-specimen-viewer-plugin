@@ -40,7 +40,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
       # our custom zip files will not be handled appropriately.
       extension = version.original_filename.split(".").pop()
       supported = false
-      
+
       # iterate the supported extensions, set the asset info if applicable
       if supported_extensions_types[version.extension]
         assetInfo.type = supported_extensions_types[version.extension]
@@ -48,7 +48,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
       if supported_extensions_types[extension]
         assetInfo.type = supported_extensions_types[extension]
         supported = true
-      
+
       if supported
         assetInfo.asset = asset
         if typeof version.versions.original?.url != 'undefined'
@@ -56,7 +56,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
           assetInfo.extension = version.versions.original?.extension
         console.log("Found supported asset", [extension, supported, assetInfo, version, asset])
         break
-        
+
     return assetInfo
 
 
@@ -110,7 +110,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
     viewerDiv = CUI.dom.element("div", {
       id: "specimen-3d-viewer"
     })
-    plugin = ez5.pluginManager.getPlugin("easydb-3d-specimen-viewer-plugin")
+    plugin = ez5.pluginManager.getPlugin("fylr-plugin-3d-specimen-viewer")
     pluginStaticUrl = plugin.getBaseURL()
 
     frameSrc = pluginStaticUrl + "/index.html?type=" + assetInfo.type + "&asset=" + assetInfo.url
@@ -137,7 +137,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
     #         src2D = file
     #     if (src2D && src3D && srcXml)
     #       frameSrc = pluginStaticUrl + "/photogrammetry_viewer.html?srcScanInformation=" +srcXml + "&src3D=" + src3D + "&src2D=" + src2D
-        
+
 
     # ...but for now, we have one that supports all types anyway.
     iframe = CUI.dom.element("iframe", {
@@ -153,4 +153,4 @@ class SpecimenViewer3DPlugin extends AssetDetail
 
 ez5.session_ready =>
   AssetBrowser.plugins.registerPlugin(SpecimenViewer3DPlugin)
-  ez5.pluginManager.getPlugin("easydb-3d-specimen-viewer-plugin").loadCss()
+  ez5.pluginManager.getPlugin("fylr-plugin-3d-specimen-viewer").loadCss()
