@@ -52,7 +52,9 @@ class SpecimenViewer3DPlugin extends AssetDetail
       if supported
         assetInfo.asset = asset
         if typeof version.versions.original?.url != 'undefined'
-          assetInfo.url = version.versions.original?.url
+          # remove all other asset url parameters
+          # add access_token=... parameter
+          assetInfo.url = Session.addToken(version.versions.original?.url.split("?")[0])
           assetInfo.extension = version.versions.original?.extension
         console.log("Found supported asset", [extension, supported, assetInfo, version, asset])
         break
