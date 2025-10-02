@@ -41,15 +41,7 @@ jobs:
       run: make
     
     - name: Create ZIP package
-      run: |
-        # Create the plugin directory with the correct name
-        mkdir -p ./fylr-plugin-3d-specimen-viewer
-        
-        # Copy files using rsync, excluding unnecessary directories
-        rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='fylr-plugin-3d-specimen-viewer' . ./fylr-plugin-3d-specimen-viewer/
-        
-        # Create the ZIP file with the directory structure preserved
-        zip -r fylr-plugin-3d-specimen-viewer.zip fylr-plugin-3d-specimen-viewer/
+      run: make zip
 
     - name: Get version
       id: get_version
