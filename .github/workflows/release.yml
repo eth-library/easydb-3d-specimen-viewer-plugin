@@ -47,6 +47,11 @@ jobs:
         
         # Copy all files to the plugin directory
         cp -r . ../fylr-plugin-3d-specimen-viewer/
+
+        # Remove unnecessary files
+        rm -rf ../fylr-plugin-3d-specimen-viewer/.git
+        rm -rf ../fylr-plugin-3d-specimen-viewer/.github
+        rm -rf ../fylr-plugin-3d-specimen-viewer/node_modules
         
         # Create the ZIP file
         zip -r fylr-plugin-3d-specimen-viewer.zip ../fylr-plugin-3d-specimen-viewer/
