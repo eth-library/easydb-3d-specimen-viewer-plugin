@@ -80,8 +80,3 @@ jobs:
           This release contains the fylr 3D Specimen Viewer Plugin.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ## 3D Specimen Viewer Plugin Release ${{ steps.get_version.outputs.version }}
-          
-          This release contains the fylr 3D Specimen Viewer Plugin.
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
