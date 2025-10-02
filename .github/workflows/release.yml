@@ -43,19 +43,14 @@ jobs:
     - name: Create ZIP package
       run: |
         # Create the plugin directory with the correct name
-        mkdir -p ../fylr-plugin-3d-specimen-viewer
+        mkdir -p ./fylr-plugin-3d-specimen-viewer
         
-        # Copy all files to the plugin directory
-        cp -r . ../fylr-plugin-3d-specimen-viewer/
-
-        # Remove unnecessary files
-        rm -rf ../fylr-plugin-3d-specimen-viewer/.git
-        rm -rf ../fylr-plugin-3d-specimen-viewer/.github
-        rm -rf ../fylr-plugin-3d-specimen-viewer/node_modules
+        # Copy files using rsync, excluding unnecessary directories
+        rsync -av --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='fylr-plugin-3d-specimen-viewer' . ./fylr-plugin-3d-specimen-viewer/
         
         # Create the ZIP file
-        zip -r fylr-plugin-3d-specimen-viewer.zip ../fylr-plugin-3d-specimen-viewer/
-    
+        zip -r fylr-plugin-3d-specimen-viewer.zip ./fylr-plugin-3d-specimen-viewer/
+
     - name: Get version
       id: get_version
       run: |
@@ -78,6 +73,11 @@ jobs:
         files: |
           fylr-plugin-3d-specimen-viewer.zip
         body: |
+          ## 3D Specimen Viewer Plugin Release ${{ steps.get_version.outputs.version }}
+          
+          This release contains the fylr 3D Specimen Viewer Plugin.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ## 3D Specimen Viewer Plugin Release ${{ steps.get_version.outputs.version }}
           
           This release contains the fylr 3D Specimen Viewer Plugin.
