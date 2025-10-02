@@ -6932,28 +6932,4 @@ vTroikaGlyphColor = uTroikaUseGlyphColors ? aTroikaGlyphColor / 255.0 : diffuse;
   width: 100%;
   height: 100%;
   text-align: center;
-`]))),mke = function (i) {
-    if (!i.src) return _e.createElement(Pf, null, "No 3D file set to display.");
-    console.log("Loading 3D model from ".concat(i.src));
-    var e = i.fileName || i.src.split("/").pop().split("?access_token=")[0] || "", t = e.split(".").pop(); // todo need a better way to parse the extension from the filename from the url
-	i.src.startsWith("data:") && !i.fileName && (t = i.src.split(";")[0].split("/")[1] || "");
-    var n = /^x\-([a-z]+)\-((bin)|(txt)|(text))$/;
-    if (n.test(t)) {
-        var r = n.exec(t);
-        r && r.length > 1 && (t = r[1])
-    }
-    var o = null;
-    switch (t.toLowerCase()) {
-        case "gltf": case "glb": return o = WY, _e.createElement(Pf, null, _e.createElement(VCe, { src: i.src }));
-        case "obj": o = hfe; break;
-        case "fbx": o = ppe; break;
-        case "ply": o = Afe; break;
-        case "stl": o = pfe; break;
-        case "xyz": o = ffe; break;
-        case "p3v": case "zip": return _e.createElement(Pf, null, _e.createElement($5e, { src: i.src }));
-        case "jpg": case "png": case "jpeg": return _e.createElement(Pf, null, _e.createElement("img", { src: i.src, alt: e }));
-        case "mp4": case "ogv": case "webm": return _e.createElement(Pf, null, _e.createElement("video", { src: i.src, controls: !0, autoPlay: !0 }));
-        case "mp3": case "wav": case "ogg": return _e.createElement(Pf, null, _e.createElement("audio", { src: i.src, controls: !0, autoPlay: !0 }))
-    }
-    return o !== null ? _e.createElement(Pf, null, _e.createElement(gke, { src: i.src, loader: o })) : _e.createElement(Pf, null, _e.createElement("p", null, "SpecimenViewer3D Component."), _e.createElement("p", { style: { color: "red" } }, 'Source with type "', t, '" from "', IJ(i.src, 25, "…"), '" is currently not supported.'))
-};function _ke(){const e=new URLSearchParams(window.location.search).get("asset");return e?Es.jsx("div",{className:"App specimen-3d-viewer-full-size",children:Es.jsx(mke,{src:e})}):Es.jsx("h1",{children:"No asset specified."})}wN.createRoot(document.getElementById("root")).render(Es.jsx(ne.StrictMode,{children:Es.jsx(_ke,{})}));export{eFe as $,er as A,rFe as B,Rt as C,uFe as D,zi as E,sFe as F,W1e as G,jr as H,Pr as I,oFe as J,bt as K,wo as L,Br as M,Kt as N,lw as O,I1e as P,ene as Q,Hi as S,Jie as T,Jke as X,Ur as Y,sc as Z,g3 as a,Rw as b,D1e as c,bSe as d,ge as e,cFe as f,Zie as g,Xr as h,Wk as i,Mw as j,tFe as k,wn as l,Nu as m,Yke as n,X2 as o,kie as p,Zke as q,zg as r,lFe as s,aFe as t,Fj as u,wr as v,Be as w,nFe as x,xr as y,iFe as z};
+`]))),mke=function(i){if(!i.src)return _e.createElement(Pf,null,"No 3D file set to display.");console.log("Loading 3D model from ".concat(i.src));var e=i.fileName||i.src.split("/").pop()||"",t=e.split(".").pop();i.src.startsWith("data:")&&!i.fileName&&(t=i.src.split(";")[0].split("/")[1]||"");var n=/^x\-([a-z]+)\-((bin)|(txt)|(text))$/;if(n.test(t)){var r=n.exec(t);r&&r.length>1&&(t=r[1])}var o=null;switch(t.toLowerCase()){case"gltf":case"glb":return o=WY,_e.createElement(Pf,null,_e.createElement(VCe,{src:i.src}));case"obj":o=hfe;break;case"fbx":o=ppe;break;case"ply":o=Afe;break;case"stl":o=pfe;break;case"xyz":o=ffe;break;case"p3v":case"zip":return _e.createElement(Pf,null,_e.createElement($5e,{src:i.src}));case"jpg":case"png":case"jpeg":return _e.createElement(Pf,null,_e.createElement("img",{src:i.src,alt:e}));case"mp4":case"ogv":case"webm":return _e.createElement(Pf,null,_e.createElement("video",{src:i.src,controls:!0,autoPlay:!0}));case"mp3":case"wav":case"ogg":return _e.createElement(Pf,null,_e.createElement("audio",{src:i.src,controls:!0,autoPlay:!0}))}return o!==null?_e.createElement(Pf,null,_e.createElement(gke,{src:i.src,loader:o})):_e.createElement(Pf,null,_e.createElement("p",null,"SpecimenViewer3D Component."),_e.createElement("p",{style:{color:"red"}},'Source with type "',t,'" from "',IJ(i.src,25,"…"),'" is currently not supported.'))};function _ke(){const e=new URLSearchParams(window.location.search).get("asset");return e?Es.jsx("div",{className:"App specimen-3d-viewer-full-size",children:Es.jsx(mke,{src:e})}):Es.jsx("h1",{children:"No asset specified."})}wN.createRoot(document.getElementById("root")).render(Es.jsx(ne.StrictMode,{children:Es.jsx(_ke,{})}));export{eFe as $,er as A,rFe as B,Rt as C,uFe as D,zi as E,sFe as F,W1e as G,jr as H,Pr as I,oFe as J,bt as K,wo as L,Br as M,Kt as N,lw as O,I1e as P,ene as Q,Hi as S,Jie as T,Jke as X,Ur as Y,sc as Z,g3 as a,Rw as b,D1e as c,bSe as d,ge as e,cFe as f,Zie as g,Xr as h,Wk as i,Mw as j,tFe as k,wn as l,Nu as m,Yke as n,X2 as o,kie as p,Zke as q,zg as r,lFe as s,aFe as t,Fj as u,wr as v,Be as w,nFe as x,xr as y,iFe as z};

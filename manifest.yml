@@ -1,7 +1,7 @@
 plugin:
   name: fylr-plugin-3d-specimen-viewer
   version: 1.0.0
-  url: https://gitlab.ethz.ch/betim/3d-specimen-viewer-plugin
+  url: https://github.com/eth-library/easydb-3d-specimen-viewer-plugin
   displayname:
     en: 3D Specimen Viewer Plugin
     de: 3D Specimen Viewer Plugin
