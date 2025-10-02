@@ -11,8 +11,10 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "3d-specimen-viewer": "^2.0.4",
+    "coffeescript": "^2.7.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "sass": "^1.93.2",
     "typescript": "^5.8.3",
     "web-vitals": "^5.0.1"
   },
