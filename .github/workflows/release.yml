@@ -34,6 +34,9 @@ jobs:
     - name: Install dependencies
       run: npm ci
     
+    - name: Install CoffeeScript
+      run: npm install -g coffeescript
+    
     - name: Build project
       run: npm run build
     
