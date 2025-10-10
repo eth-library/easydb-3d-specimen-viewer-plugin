@@ -58,6 +58,8 @@ class SpecimenViewer3DPlugin extends AssetDetail
           assetInfo.extension = version.versions.original?.extension
         console.log("Found supported asset", [extension, supported, assetInfo, version, asset])
         break
+      else
+        console.log("Unsupported asset version", [extension, supported, version, asset])
 
     return assetInfo
 
