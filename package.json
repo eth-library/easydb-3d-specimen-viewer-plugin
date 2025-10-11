@@ -1,6 +1,6 @@
 {
-  "name": "3d-specimen-viewer-plugin",
-  "version": "0.2.0",
+  "name": "fylr-3d-specimen-viewer-plugin",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
