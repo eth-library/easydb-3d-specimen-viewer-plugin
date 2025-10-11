@@ -41,7 +41,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
       extension = version.original_filename.split(".").pop()
       if extension == "zip"
         # if it's a zip, need to extract the actual extension
-        extension_2 = version.original_filename.split(".")[-2]
+        extension_2 = version.original_filename.split(".").slice(-2, -1)[0]
         if supported_extensions_types[extension_2]
           extension = extension_2
       supported = false
