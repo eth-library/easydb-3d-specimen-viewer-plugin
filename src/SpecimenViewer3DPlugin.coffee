@@ -5,6 +5,7 @@ class SpecimenViewer3DPlugin extends AssetDetail
       type: null
       url: null
       extension: null
+      original_filename: null
       defaults: ''
       asset: null
     }
@@ -61,6 +62,9 @@ class SpecimenViewer3DPlugin extends AssetDetail
           # add access_token=... parameter
           assetInfo.url = Session.addToken(version.versions.original?.url.split("?")[0])
           assetInfo.extension = version.versions.original?.extension
+        # keep the original filename for passing to the viewer
+        if typeof version.original_filename != 'undefined'
+          assetInfo.original_filename = version.original_filename
         console.log("Found supported asset", [extension, supported, assetInfo, version, asset])
         break
       else
@@ -121,8 +125,17 @@ class SpecimenViewer3DPlugin extends AssetDetail
     })
     plugin = ez5.pluginManager.getPlugin("fylr-plugin-3d-specimen-viewer")
     pluginStaticUrl = plugin.getBaseURL()
+    # Build iframe src with properly URL-encoded query parameters
+    typeParam = encodeURIComponent(assetInfo.type)
+    assetParam = encodeURIComponent(assetInfo.url)
+    if assetInfo.original_filename?
+      filenameParam = encodeURIComponent(assetInfo.original_filename)
+    else
+      filenameParam = ''
 
-    frameSrc = pluginStaticUrl + "/index.html?type=" + assetInfo.type + "&asset=" + assetInfo.url
+    frameSrc = pluginStaticUrl + "/index.html?type=" + typeParam + "&asset=" + assetParam
+    if filenameParam.length > 0
+      frameSrc += "&original_filename=" + filenameParam
     # we could use assetInfo to conditionally change what viewer we use...
     # in particular, we need to return a different file for the photogrammetry viewer
     # to improve Firefox support
@@ -145,7 +158,9 @@ class SpecimenViewer3DPlugin extends AssetDetail
     #       if file.path.contains("edof")
     #         src2D = file
     #     if (src2D && src3D && srcXml)
-    #       frameSrc = pluginStaticUrl + "/photogrammetry_viewer.html?srcScanInformation=" +srcXml + "&src3D=" + src3D + "&src2D=" + src2D
+  #       frameSrc = pluginStaticUrl + \
+  #         "/photogrammetry_viewer.html?srcScanInformation=" + srcXml + \
+  #         "&src3D=" + src3D + "&src2D=" + src2D
 
 
     # ...but for now, we have one that supports all types anyway.
@@ -160,6 +175,6 @@ class SpecimenViewer3DPlugin extends AssetDetail
     CUI.dom.append(@outerDiv, viewerDiv)
 
 
-ez5.session_ready =>
+ez5.session_ready ->
   AssetBrowser.plugins.registerPlugin(SpecimenViewer3DPlugin)
   ez5.pluginManager.getPlugin("fylr-plugin-3d-specimen-viewer").loadCss()

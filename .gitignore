@@ -25,6 +25,7 @@ src/SpecimenViewer3DPlugin.coffee.js
 build-stamp-l10n
 build-info.json
 *.zip
+dist/
 
 # Editor directories and files
 .vscode/*
